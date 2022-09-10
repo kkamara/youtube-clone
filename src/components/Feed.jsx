@@ -9,9 +9,17 @@ import { Sidebar, Videos, } from './index'
 
 const Feed = () => {
   const [selectedCategory, setSelectedCategory] = useState('New')
+  const [videos, setVideos] = useState([])
 
   useEffect(() => {
     fetchFromAPI(`search?part=snippet&q=${selectedCategory}`)
+    .then(data => {
+      if (!data || !data.items) {
+        alert('Unsuccessful videos request made.')
+      }
+      setVideos(data.items)
+    })
+    .catch(err => alert(err.message))
   }, [selectedCategory,])
 
   return (
@@ -30,7 +38,7 @@ const Feed = () => {
           {selectedCategory} <span style={{ color: '#F31502', }}>videos</span>
         </Typography>
 
-        <Videos videos={[]} />
+        <Videos videos={videos} />
       </Box>
     </Stack>
   )
