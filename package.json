@@ -1,8 +1,10 @@
 {
   "name": "youtube-clone",
+  "homepage": "https://kkamara.github.io/youtube-clone",
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "preinstall": "cp .env.example .env",
     "predeploy": "yarn build",
     "deploy": "gh-pages -d build",
     "start": "react-scripts start",
