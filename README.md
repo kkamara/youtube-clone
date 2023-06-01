@@ -1,5 +1,5 @@
 # YouTube Clone
-Browse and manage your favourite videos.
+Browse and manage your favourite videos. Reactjs.
 
 ## Installation
 
